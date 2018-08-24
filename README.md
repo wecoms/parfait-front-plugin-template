@@ -1,0 +1,1 @@
+# welink-front-plugin-template
