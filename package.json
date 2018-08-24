@@ -1,0 +1,9 @@
+{
+  "name": "welink-front-plugin-template",
+  "version": "1.0.0",
+  "license": "Wecoms Inc",
+  "description": "Welink Front Plugin Template.",
+  "devDependencies": {
+    "vue-cli": "^2.8.1"
+  }
+}
