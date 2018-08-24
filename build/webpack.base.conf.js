@@ -12,6 +12,9 @@ function resolve (dir) {
 
 module.exports = {
     context: path.resolve(__dirname, '../'),
+    entry: {
+        'plugin': './src/front/index.js',
+    },
     output: {
         path: config.build.assetsRoot,
         filename: '[name].js',
