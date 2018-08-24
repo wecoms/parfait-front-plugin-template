@@ -7,13 +7,12 @@ const config = require('./config');
 const merge = require('webpack-merge');
 const baseWebpackConfig = require('./webpack.base.conf');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const packageConfig = require('../package.json');
 
 const env = require('./config/prod.env');
 
 const webpackConfig = merge(baseWebpackConfig, {
-    entry: {
-        'plugin': './src/front/plugin.js',
-    },
+    entry: {},
     module: {
         rules: utils.styleLoaders({
             sourceMap: config.build.productionSourceMap,
@@ -46,6 +45,8 @@ const webpackConfig = merge(baseWebpackConfig, {
         new webpack.optimize.ModuleConcatenationPlugin()
     ]
 });
+
+webpackConfig.entry[packageConfig.name] = './src/front/plugin.js';
 
 if (config.build.bundleAnalyzerReport) {
     const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
