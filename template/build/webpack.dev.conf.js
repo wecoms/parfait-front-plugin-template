@@ -2,7 +2,7 @@
 
 const utils = require('./utils');
 const webpack = require('webpack');
-const config = require('../config');
+const config = require('./config');
 const merge = require('webpack-merge');
 const path = require('path');
 const baseWebpackConfig = require('./webpack.base.conf');
@@ -13,18 +13,17 @@ const portfinder = require('portfinder');
 const HOST = process.env.HOST;
 const PORT = process.env.PORT && Number(process.env.PORT);
 
-function resolve (dir) {
-    return path.join(__dirname, '..', dir)
-}
-
 const devWebpackConfig = merge(baseWebpackConfig, {
+    entry: {
+        'index': './src/front/index.js',
+    },
     module: {
         rules: utils.styleLoaders({sourceMap: config.dev.cssSourceMap})
     },
     // cheap-module-eval-source-map is faster for development
     devtool: config.dev.devtool,
 
-    // these devServer options should be customized in /config/index.js
+    // these devServer options should be customized in /config/plugin.js
     devServer: {
         clientLogLevel: 'warning',
         historyApiFallback: {
@@ -50,7 +49,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     },
     plugins: [
         new webpack.DefinePlugin({
-            'process.env': require('../config/dev.env')
+            'process.env': require('./config/dev.env')
         }),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.

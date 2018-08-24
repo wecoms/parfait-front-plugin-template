@@ -3,7 +3,7 @@
 const path = require('path');
 const chalk = require('chalk');
 const utils = require('./utils');
-const config = require('../config');
+const config = require('./config');
 const vueLoaderConfig = require('./vue-loader.conf');
 
 function resolve (dir) {
@@ -12,9 +12,6 @@ function resolve (dir) {
 
 module.exports = {
     context: path.resolve(__dirname, '../'),
-    entry: {
-        'plugin': './src/front/plugin.js',
-    },
     output: {
         path: config.build.assetsRoot,
         filename: '[name].js',
