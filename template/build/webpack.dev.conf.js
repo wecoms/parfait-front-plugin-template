@@ -18,9 +18,6 @@ function resolve (dir) {
 }
 
 const devWebpackConfig = merge(baseWebpackConfig, {
-    entry: {
-        'my-plugin': './src/front/index.js',
-    },
     module: {
         rules: utils.styleLoaders({sourceMap: config.dev.cssSourceMap})
     },
