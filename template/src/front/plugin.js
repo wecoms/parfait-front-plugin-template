@@ -2,8 +2,14 @@ import HelloPlugin from "./components/HelloPlugin"
 
 const packageConfig = require('../../package.json');
 const pluginEntry = new WelinkPluginEntry({
-    type: "MainMenu",               // Set Component Type within Welink-Front
-    component: HelloPlugin          // Set Your Component
+    // Set component type within Welink-Front
+    type: WelinkPluginEntryType.MainMenuItem,       
+    
+    // Set your component or object about type
+    target: {
+        id: "hello-plugin-menu",
+        component: HelloPlugin
+    }
 });
 
 WelinkPluginManager.addPlugin(new WelinkPlugin({
