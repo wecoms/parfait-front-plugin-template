@@ -1,9 +1,9 @@
 import HelloPlugin from "./components/HelloPlugin"
 
 const packageConfig = require('../../package.json');
-const pluginEntry = new WelinkPluginEntry({
+const pluginEntry = new ParfaitPluginEntry({
     // Set component type within Welink-Front
-    type: WelinkPluginEntryType.MainMenuItem,       
+    type: ParfaitPluginEntryType.MainMenuItem,       
     
     // Set your component or object about type
     target: {
@@ -12,7 +12,7 @@ const pluginEntry = new WelinkPluginEntry({
     }
 });
 
-WelinkPluginManager.addPlugin(new WelinkPlugin({
+ParfaitPluginManager.addPlugin(new ParfaitPlugin({
     id: packageConfig.name,
     version: packageConfig.version,
     entries: [pluginEntry]
