@@ -9,7 +9,7 @@
         "build": "node build/build.js"
     },
     "dependencies": {
-        "welink-front": "^1.0.0-SNAPSHOT"
+        "parfait-front": "^1.0.0-SNAPSHOT"
     },
     "devDependencies": {
         "autoprefixer": "^7.1.2",
