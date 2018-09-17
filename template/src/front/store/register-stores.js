@@ -1,11 +1,7 @@
-import users from "./users"
-import menus from "./menus"
-import codes from "./codes"
+import helloPlugin from "./hello-plugin"
 
 export default {
     register: function() {
-        ParfaitContext.getMainComponent().$store.registerModule("users", users);
-        ParfaitContext.getMainComponent().$store.registerModule("menus", menus);
-        ParfaitContext.getMainComponent().$store.registerModule("codes", codes);
+        ParfaitContext.getMainComponent().$store.registerModule("helloPlugin", helloPlugin);
     }
 }
