@@ -2,15 +2,15 @@ export default {
     namespaced: true,
 
     state: {
-        users: null
+        helloPlugin: null
     },
 
     mutations: {
     },
 
     actions: {
-        testUsers(context) {
-            console.log("test users");
+        testHelloPlugin(context) {
+            console.log("test hello-plugin");
         }
     }
 };
