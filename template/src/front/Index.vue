@@ -1,26 +1,19 @@
 <template>
     <div>
-        <menu-management/>
-        <!--<user-management/>-->
-        <!--<notice/>-->
-        <!--<auth-management/>-->
+        <hello-plugin/>
     </div>
 </template>
 
 <script>
-    import MenuManagement from "./components/menu/MenuManagement"
-    import UserManagement from "./components/user/UserManagement"
-    import Notice from "./components/notice/Notice"
-    import AuthManagement from "./components/auth/AuthManagement"
+    import HelloPlugin from "./components/HelloPlugin"
 
     export default {
         name: "Index",
         components: {
-            MenuManagement, UserManagement, Notice, AuthManagement
-        },
+            HelloPlugin
+        }
     }
 </script>
 
 <style scoped>
-
 </style>
