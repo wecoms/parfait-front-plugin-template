@@ -1,19 +1,31 @@
+import RegisterStores from "./store/register-stores.js"
 import HelloPlugin from "./components/HelloPlugin"
 
-const packageConfig = require('../../package.json');
+const pluginRegisterStoreEntry = new ParfaitPluginEntry({
+    type: ParfaitPluginEntryType.RegisterStores,
+    target: function() {
+        RegisterStores.register();
+    }
+});
+
+const pluginMainLoadCompleteEntry = new ParfaitPluginEntry({
+    type: ParfaitPluginEntryType.MainLoadCompleteEvent,
+    target: function() {
+        return RegisterStores.load();
+    }
+});
+
 const pluginEntry = new ParfaitPluginEntry({
-    // Set component type within Welink-Front
     type: ParfaitPluginEntryType.MainMenuItem,       
-    
-    // Set your component or object about type
     target: {
         id: "hello-plugin-menu",
         component: HelloPlugin
     }
 });
 
+const packageConfig = require('../../package.json');
 ParfaitPluginManager.addPlugin(new ParfaitPlugin({
     id: packageConfig.name,
     version: packageConfig.version,
-    entries: [pluginEntry]
+    entries: [pluginRegisterStoreEntry, pluginMainLoadCompleteEntry, pluginEntry]
 }));
