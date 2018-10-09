@@ -11,13 +11,18 @@ const store = new Vuex.Store();
 
 new Vue({
     el: "#plugin",
-    template: "<index/>",
-    components: {
-        Index
+    template: "<component :is='index'></component>",
+    data: {
+        index: null
     },
     store,
     mounted() {
+        const self = this;
         ParfaitContext.setMainComponent(this);
         RegisterStores.register();
+        RegisterStores.load()
+            .then(function() {
+                self.index = Index;
+            });
     }
 });
