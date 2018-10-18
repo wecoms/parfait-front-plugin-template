@@ -16,8 +16,8 @@ const pluginMainLoadCompleteEntry = new ParfaitPluginEntry({
 });
 
 const pluginEntry = new ParfaitPluginEntry({
-    type: ParfaitPluginEntryType.MainMenuItem,       
-    target: {
+    type: ParfaitPluginEntryType.MainMenuItem,
+    target: new ParfaitPluginEntryMainMenuItemTarget({
         id: "hello-plugin-menu",
         order: 0,
         title: "메뉴1",
@@ -29,7 +29,7 @@ const pluginEntry = new ParfaitPluginEntry({
             lockable: true,
             closable: true
         }
-    }
+    })
 });
 
 const packageConfig = require('../../package.json');
