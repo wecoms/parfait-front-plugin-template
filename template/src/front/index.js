@@ -17,12 +17,11 @@ new Vue({
     },
     store,
     mounted() {
-        const self = this;
         ParfaitContext.setMainComponent(this);
         RegisterStores.register();
         RegisterStores.load()
             .then(function() {
-                self.index = Index;
-            });
+                this.index = Index;
+            }.bind(this));
     }
 });
