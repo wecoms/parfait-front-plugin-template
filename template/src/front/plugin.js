@@ -24,7 +24,7 @@ const pluginEntry = new ParfaitPluginEntry({
 });
 
 const packageConfig = require('../../package.json');
-ParfaitPluginManager.addPlugin(new ParfaitPlugin({
+ParfaitPluginManager.getInstance().addPlugin(new ParfaitPlugin({
     id: packageConfig.name,
     version: packageConfig.version,
     entries: [pluginRegisterStoreEntry, pluginMainLoadCompleteEntry, pluginEntry]
