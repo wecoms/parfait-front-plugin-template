@@ -19,7 +19,16 @@ const pluginEntry = new ParfaitPluginEntry({
     type: ParfaitPluginEntryType.MainMenuItem,       
     target: {
         id: "hello-plugin-menu",
-        component: HelloPlugin
+        order: 0,
+        title: "메뉴1",
+        actionType: ParfaitPluginEntryMainMenuActionType.Injection,
+        actionComponent: HelloPlugin,
+        actionOptions: {
+            id: "hello-plugin",
+            caption: "메뉴1",
+            lockable: true,
+            closable: true
+        }
     }
 });
 
