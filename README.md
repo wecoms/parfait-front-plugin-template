@@ -1,1 +1,1 @@
-# welink-front-plugin-template
+# parfait-front-plugin-template
