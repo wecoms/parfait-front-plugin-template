@@ -7,6 +7,7 @@ const config = require('./config');
 const merge = require('webpack-merge');
 const baseWebpackConfig = require('./webpack.base.conf');
 const packageConfig = require('../package.json');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const env = require('./config/prod.env');
 
@@ -28,6 +29,15 @@ const webpackConfig = merge(baseWebpackConfig, {
         // http://vuejs.github.io/vue-loader/en/workflow/production.html
         new webpack.DefinePlugin({
             'process.env': env
+        }),
+        new UglifyJsPlugin({
+            uglifyOptions: {
+                compress: {
+                    warnings: false
+                }
+            },
+            sourceMap: config.build.productionSourceMap,
+            parallel: true
         }),
         // keep module.id stable when vendor modules does not change
         new webpack.HashedModuleIdsPlugin(),
