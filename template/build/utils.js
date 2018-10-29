@@ -14,6 +14,12 @@ exports.assetsPath = function (_path) {
     return path.posix.join(assetsSubDirectory, _path)
 };
 
+exports.resourcesPublicPath = function() {
+    return process.env.NODE_ENV === 'production'
+        ? config.build.resourcesPublicPath
+        : config.dev.resourcesPublicPath;
+};
+
 exports.cssLoaders = function (options) {
     options = options || {};
 
