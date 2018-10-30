@@ -5,6 +5,7 @@ const chalk = require('chalk');
 const utils = require('./utils');
 const config = require('./config');
 const vueLoaderConfig = require('./vue-loader.conf');
+const WebpackBeforeBuildPlugin = require('before-build-webpack');
 
 function resolve (dir) {
     return path.join(__dirname, '..', dir)
@@ -78,5 +79,17 @@ module.exports = {
         net: 'empty',
         tls: 'empty',
         child_process: 'empty'
-    }
+    },
+    plugins: [
+        new WebpackBeforeBuildPlugin(function(compiler, callback) {
+            console.log();
+            console.log(" " + chalk.blue('extract components before build...'));
+
+            utils.createComponents('components');
+
+            console.log(" " + chalk.blue('complete to extract components'));
+            console.log();
+            callback();
+        })
+    ]
 };
