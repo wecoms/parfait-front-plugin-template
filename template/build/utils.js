@@ -5,6 +5,11 @@ const config = require('./config');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const packageConfig = require('../package.json');
 const chalk = require('chalk');
+const fs = require("file-system");
+
+function resolve (dir) {
+    return path.join(__dirname, '..', dir)
+}
 
 exports.assetsPath = function (_path) {
     const assetsSubDirectory = process.env.NODE_ENV === 'production'
@@ -73,6 +78,33 @@ exports.styleLoaders = function (options) {
     }
 
     return output
+};
+
+exports.createComponents = function(componentsPath) {
+    let content = '// This file is created automatically by system.\n\n';
+
+    let names = [];
+    fs.recurseSync(resolve('src/front/' + componentsPath), ['**/*.vue'], function(filepath, relative, filename) {
+        console.log('  > extract vue component : ' + filename);
+        const name = filename.replace('.vue', '');
+        const relativePath = './' + componentsPath + '/' + relative;
+        content += 'import ' + name + ' from "' + relativePath.replace(/\\/g, '/') + '"\n';
+        names.push(name);
+    });
+    content += '\n';
+
+    content += 'export default {\n';
+    content += '    get: function() {\n';
+    content += '        const map = new Map();\n';
+    names.forEach(function(name) {
+        content += '        map.set(' + name + '.name, ' + name + ');\n';
+    });
+    content += '        \n';
+    content += '        return map;\n';
+    content += '    }\n';
+    content += '}\n';
+
+    fs.writeFileSync(resolve('src/front/plugin-components.js'), content);
 };
 
 exports.createNotifierCallback = () => {
