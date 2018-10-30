@@ -19,7 +19,7 @@ new Vue({
     mounted() {
         ParfaitContext.setMainComponent(this);
         
-        ParfaitPluginUtil.loadsForDevelopment(
+        ParfaitPluginUtil.loads(
             [
                 RegisterStores.register(),
                 RegisterStores.load()
