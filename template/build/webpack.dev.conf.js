@@ -16,6 +16,7 @@ const PORT = process.env.PORT && Number(process.env.PORT);
 const devWebpackConfig = merge(baseWebpackConfig, {
     entry: {
         'index': './src/front/index.js',
+        'index-css': './src/front/resources/css/common.css'
     },
     module: {
         rules: utils.styleLoaders({sourceMap: config.dev.cssSourceMap})
