@@ -8,6 +8,8 @@ const merge = require('webpack-merge');
 const baseWebpackConfig = require('./webpack.base.conf');
 const packageConfig = require('../package.json');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 
 const env = require('./config/prod.env');
 
@@ -39,6 +41,22 @@ const webpackConfig = merge(baseWebpackConfig, {
             sourceMap: config.build.productionSourceMap,
             parallel: true
         }),
+        // extract css into its own file
+        new ExtractTextPlugin({
+            filename: utils.assetsPath('[name].css'),
+            // Setting the following option to `false` will not extract CSS from codesplit chunks.
+            // Their CSS will instead be inserted dynamically with style-loader when the codesplit chunk has been loaded by webpack.
+            // It's currently set to `true` because we are seeing that sourcemaps are included in the codesplit bundle as well when it's `false`,
+            // increasing file size: https://github.com/vuejs-templates/webpack/issues/1110
+            allChunks: true,
+        }),
+        // Compress extracted CSS. We are using this plugin so that possible
+        // duplicated CSS from different components can be deduped.
+        new OptimizeCSSPlugin({
+            cssProcessorOptions: config.build.productionSourceMap
+                ? { safe: true, map: { inline: false } }
+                : { safe: true }
+        }),
         // keep module.id stable when vendor modules does not change
         new webpack.HashedModuleIdsPlugin(),
         // enable scope hoisting
@@ -46,7 +64,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     ]
 });
 
-webpackConfig.entry[packageConfig.name] = './src/front/plugin.js';
+webpackConfig.entry[packageConfig.name] = ['./src/front/plugin.js', './src/front/resources/css/common.css'];
 
 if (config.build.bundleAnalyzerReport) {
     const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
