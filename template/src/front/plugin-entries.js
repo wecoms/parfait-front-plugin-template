@@ -15,17 +15,14 @@ const pluginMainLoadCompleteEntry = new ParfaitPluginEntry({
     }
 });
 
-const pluginMenuEntry = new ParfaitPluginEntry({
-    type: ParfaitPluginEntryType.MainMenuItem,
-    target: new ParfaitPluginEntryMainMenuItemTarget({
-        id: "hello-plugin-menu",
-        order: 0,
-        title: "메뉴1",
-        actionType: ParfaitPluginEntryMainMenuActionType.Injection,
+const pluginActionEntry = new ParfaitPluginEntry({
+    type: ParfaitPluginEntryType.Action,
+    target: new ParfaitPluginEntryActionTarget({
+        id: "parfait-hello-plugin",
         actionComponent: HelloPlugin,
         actionOptions: {
-            id: "hello-plugin",
-            caption: "메뉴1",
+            id: "parfait-hello-plugin",
+            caption: "플러그인 테스트",
             lockable: true,
             closable: true
         }
