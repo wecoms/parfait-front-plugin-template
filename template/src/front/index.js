@@ -2,6 +2,9 @@ import Vue from "vue"
 import Vuex from "vuex"
 import ParfaitFront from "parfait-front"
 ParfaitFront.use("w2ui");
+ParfaitFront.use("aui");
+ParfaitFront.use("highcharts");
+ParfaitFront.use("fullcalendar");
 
 Vue.use(Vuex);
 const store = new Vuex.Store();
