@@ -38,5 +38,5 @@
             ]
         }
     },
-    "completeMessage": "To get started:\n\n  cd {{destDirName}}\n  npm(or yarn) install\n  npm(or yarn) run dev"
+    "completeMessage": "To get started:\n  cd {{destDirName}}\n  npm(or yarn) install\n  npm(or yarn) run dev"
 }
