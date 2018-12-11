@@ -15,7 +15,7 @@
             "type": "string",
             "required": true,
             "label": "Project description",
-            "default": "A Vue.js project"
+            "default": "A Parfait Plugin project"
         },
         "author": {
             "type": "string",
