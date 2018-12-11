@@ -30,7 +30,7 @@
         "node-notifier": "^5.1.2",
         "optimize-css-assets-webpack-plugin": "^3.2.0",
         "ora": "^1.2.0",
-        "parfait-front": "^1.0.0-beta-04",
+        "parfait-front": "^1.0.0-beta-06",
         "portfinder": "^1.0.13",
         "rimraf": "^2.6.0",
         "semver": "^5.3.0",
