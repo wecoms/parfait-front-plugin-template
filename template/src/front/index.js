@@ -9,7 +9,8 @@ ParfaitFront.use("fullcalendar");
 Vue.use(Vuex);
 const store = new Vuex.Store();
 
-import "parfait-front/src/front/resources/css/common.css"
+import "./plugin"
+import "./resources/css/common.css"
 import Index from "./Index.vue"
 import RegisterStores from "./store/register-stores.js"
 
