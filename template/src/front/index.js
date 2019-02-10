@@ -1,19 +1,16 @@
 import Vue from "vue"
 import Vuex from "vuex"
 import ParfaitFront from "parfait-front"
-ParfaitFront.use("w2ui");
-ParfaitFront.use("aui");
-ParfaitFront.use("highcharts");
-ParfaitFront.use("fullcalendar");
 
 Vue.use(Vuex);
-const store = new Vuex.Store();
+Vue.use(ParfaitFront);
 
 import "./plugin"
 import "./resources/css/common.css"
 import Index from "./Index.vue"
 import RegisterStores from "./store/register-stores.js"
 
+const store = new Vuex.Store();
 new Vue({
     el: "#plugin",
     template: "<component :is='index'></component>",
