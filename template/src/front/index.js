@@ -21,10 +21,14 @@ new Vue({
     mounted() {
         ParfaitContext.setMainComponent(this);
         
+        ParfaitPluginUtil.registerStores(
+            [
+                RegisterStores.register
+            ]
+        );
         ParfaitPluginUtil.loads(
             [
-                RegisterStores.register(),
-                RegisterStores.load()
+                RegisterStores.load
             ],
             function() {
                 this.index = Index;
