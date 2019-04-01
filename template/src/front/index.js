@@ -16,7 +16,7 @@ const router = new VueRouter();
 const store = new Vuex.Store();
 new Vue({
     el: "#plugin",
-    template: "<component :is='index'></component>",
+    template: "<div style='width: 100%; height: 100%;'><component :is='index'></component><vue-snotify/></div>",
     data: {
         index: null
     },
