@@ -26,7 +26,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     output: {
         path: config.build.assetsRoot,
         filename: utils.assetsPath('[name].js'),
-        chunkFilename: utils.assetsPath('[id].js')
+        chunkFilename: utils.assetsPath('[id].[chunkhash].js')
     },
     plugins: [
         // http://vuejs.github.io/vue-loader/en/workflow/production.html
