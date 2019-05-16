@@ -60,9 +60,6 @@ const devWebpackConfig = merge(baseWebpackConfig, {
             filename: './src/front/index.html',
             template: './src/front/index.html',
             inject: true
-        }),
-        new webpack.ProvidePlugin({
-            Promise: 'es6-promise-promise'
         })
     ]
 });
