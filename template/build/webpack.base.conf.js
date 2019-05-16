@@ -2,6 +2,7 @@
 
 const path = require('path');
 const chalk = require('chalk');
+const webpack = require('webpack');
 const utils = require('./utils');
 const config = require('./config');
 const vueLoaderConfig = require('./vue-loader.conf');
@@ -91,6 +92,9 @@ module.exports = {
             console.log(" " + chalk.blue('complete to extract components'));
             console.log();
             callback();
+        }),
+        new webpack.ProvidePlugin({
+            Promise: 'es6-promise-promise'
         })
     ]
 };
