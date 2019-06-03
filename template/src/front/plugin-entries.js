@@ -1,15 +1,15 @@
 import RegisterStores from "./store/register-stores.js"
 import HelloPlugin from "./components/HelloPlugin"
 
-const pluginRegisterStoreEntry = new ParfaitPluginEntry({
+const pluginRegisterStoresEntry = new ParfaitPluginEntry({
     type: ParfaitPluginEntryType.RegisterStores,
     target: function() {
         RegisterStores.register();
     }
 });
 
-const pluginMainLoadCompleteEntry = new ParfaitPluginEntry({
-    type: ParfaitPluginEntryType.MainLoadCompleteEvent,
+const pluginLoadStoresEntry = new ParfaitPluginEntry({
+    type: ParfaitPluginEntryType.LoadStores,
     target: function() {
         return RegisterStores.load();
     }
@@ -32,8 +32,8 @@ const pluginActionEntry = new ParfaitPluginEntry({
 export default {
     get: function() {
         return [
-            pluginRegisterStoreEntry,
-            pluginMainLoadCompleteEntry,
+            pluginRegisterStoresEntry,
+            pluginLoadStoresEntry,
             pluginActionEntry
         ];
     }
