@@ -40,7 +40,5 @@ new Vue({
                 this.index = Index;
             }.bind(this)
         );
-
-        this.index = Index;
     }
 });
