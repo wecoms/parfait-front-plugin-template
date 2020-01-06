@@ -6,13 +6,31 @@
 const packageJSON = require('../../package.json');
 const path = require('path');
 
+const host = "localhost";
+const port = "8080";
+const contextPath = "/";
+
 module.exports = {
     dev: {
         // Paths
         assetsSubDirectory: '',
         assetsPublicPath: '/',
         resourcesPublicPath: '',
-        proxyTable: {},
+        proxyTable: {
+            '/rest/api/' : {
+                target: 'http://' + host + ':' + port + contextPath,
+                changeOrigin : true
+            },
+            '/webjars/' : {
+                target: 'http://' + host + ':' + port + contextPath,
+                changeOrigin : true
+            },
+            '/ws/' : {
+                target: 'ws://' + host + ':' + port + contextPath,
+                changeOrigin : false,
+                ws: true
+            }
+        },
 
         // Various Dev Server settings
         host: '0.0.0.0', // can be overwritten by process.env.HOST
