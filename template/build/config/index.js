@@ -14,7 +14,7 @@ module.exports = {
     dev: {
         // Paths
         assetsSubDirectory: '',
-        assetsPublicPath: '',
+        assetsPublicPath: '/',
         resourcesPublicPath: '',
         proxyTable: {
             '/rest/api/' : {
@@ -60,7 +60,7 @@ module.exports = {
         // Paths
     	assetsRoot: path.join(__dirname, '../../target', 'classes', 'META-INF', 'resources', 'webjars', packageJSON.name, packageJSON.version),
         assetsSubDirectory: '',
-        assetsPublicPath: 'webjars/' + packageJSON.name + '/' + packageJSON.version + '/',
+        assetsPublicPath: '/webjars/' + packageJSON.name + '/' + packageJSON.version + '/',
         resourcesPublicPath: 'webjars/' + packageJSON.name + '/' + packageJSON.version,
 
         /**
