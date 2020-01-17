@@ -3,8 +3,11 @@
 </template>
 
 <script>
+    import ParfaitBase from "parfait-front/src/front/components/core/base/ParfaitBase"
+    
     export default {
-        name: "hello-plugin"
+        name: "hello-plugin",
+        extends: ParfaitBase
     }
 </script>
 
