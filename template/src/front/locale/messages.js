@@ -1,8 +1,8 @@
 export default {
     ko: {
-        myTest: "XXX"
+        hello: "안녕하세요."
     },
     en: {
-        myTest: "YYY"
+        hello: "Hello."
     }
 }
